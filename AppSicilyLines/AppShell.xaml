@@ -6,9 +6,9 @@
     xmlns:local="clr-namespace:AppSicilyLines"
     Title="AppSicilyLines">
 
+
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+        Route="MainPage"/>
 </Shell>

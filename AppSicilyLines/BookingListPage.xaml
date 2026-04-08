@@ -9,7 +9,10 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <CollectionView x:Name="list_bookings">
+        <CollectionView
+            x:Name="list_bookings"
+            SelectionChanged="BookingDetails_Clicked"
+            SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="10" Margin="10" BackgroundColor="{Binding BackgroundColor}">
@@ -20,11 +23,12 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Label 
-                                Text="{Binding Crossing.Name}"
-                                FontAttributes="Bold"/>
                         <Label
-                                Text="{Binding Date}"
+                                Text="{Binding Crossing.Name}"
+                                FontAttributes="Bold"
+                            />
+                        <Label
+                                Text="{Binding FormattedDate}"
                                 Grid.Row="1"/>
                     </Grid>
                 </DataTemplate>

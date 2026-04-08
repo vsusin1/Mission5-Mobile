@@ -3,7 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppSicilyLines.MainPage"
              Title="Accueil">
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="button_disconnect" IsEnabled="False" Clicked="DisconnectButton_Clicked">
+            <ToolbarItem.Text>
+                Se déconnecter
+            </ToolbarItem.Text>
+        </ToolbarItem>
+        <ToolbarItem>
+            <ToolbarItem.Text>
+                Sicily Lines
+            </ToolbarItem.Text>
+            <ToolbarItem.IconImageSource>
+                <FileImageSource File="logo_sicilylines.png"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"

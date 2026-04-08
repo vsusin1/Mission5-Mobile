@@ -81,7 +81,7 @@ namespace SicilyLinesAPI
 
                 foreach (DbDataRecord item in result)
                 {
-                    Booking b = new Booking(item.GetInt64(0), Clients[(int) item.GetInt64(1)], Crossings[(int) item.GetInt64(2)], DateTime.Parse(item.GetString(3)));
+                    Booking b = new Booking(item.GetInt64(0), Clients[(int) item.GetInt64(1) - 1], Crossings[(int) item.GetInt64(2)], DateTime.Parse(item.GetString(3)));
 
                     _bookings.Add(b);
                 }

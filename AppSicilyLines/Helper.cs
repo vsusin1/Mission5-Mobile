@@ -26,7 +26,7 @@ namespace AppSicilyLines
             {
                 var responseString = await response.Content.ReadAsStringAsync();
 
-                if (responseString == null)
+                if (responseString.IsWhiteSpace())
                 {
                     return default;
                 }

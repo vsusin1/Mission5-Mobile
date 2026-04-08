@@ -53,8 +53,15 @@ public partial class EditAccountPage : ContentPage
                 finalPwd = Convert.ToHexStringLower(hashedPwd);
             }
 
-            await Helper.EditProfileInfo(new Client(client.Id, client.LastName, client.FirstName, DateOnly.FromDateTime(entry_birthDate.Date.Value), client.ClientGender, client.Login, finalPwd));
-		}
+            var statusCode = await Helper.EditProfileInfo(new Client(client.Id, client.LastName, client.FirstName, DateOnly.FromDateTime(entry_birthDate.Date.Value), client.ClientGender, client.Login, finalPwd));
+
+			if (statusCode == System.Net.HttpStatusCode.OK) // HTTP 200
+                await DisplayAlertAsync("Notification", "Votre profil utilisateur vient d'être modifié.", "Ok.");
+			else
+				await DisplayAlertAsync("Erreur", "Une erreur s'est produite, veuillez réessayer plus tard.", "Ok.");
+
+            await Navigation.PopAsync();
+        }
 	}
 
 
