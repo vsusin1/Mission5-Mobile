@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSicilyLines.MainPage"
+             Title="Accueil">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            HorizontalOptions="Center">
+            <!-- Login form -->
+            <VerticalStackLayout x:Name="layout_login" IsVisible="True">
+                <Label Text="Nom d'utilisateur"/>
+                <Entry x:Name="entry_login"/>
+
+                <Label Text="Mot de passe"/>
+                <Entry x:Name="entry_password" IsPassword="True"/>
+
+                <Button
+                    Text="Se connecter"
+                    Clicked="ConnectionButton_Clicked"/>
+            </VerticalStackLayout>
+
+            <!-- Once connected -->
+            <VerticalStackLayout x:Name="layout_connected" IsVisible="False">
+                <Label x:Name="label_greet" Text="{Binding UserGreetSentence}"/>
+
+                <Button
+                    Text="Voir mes réservations"
+                    Clicked="BookingListButton_Clicked"/>
+                <Button
+                    Text="Modifier mes coordonnées"
+                    Clicked="EditAccountButton_Clicked"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

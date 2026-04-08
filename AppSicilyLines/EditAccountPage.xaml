@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSicilyLines.EditAccountPage"
+             Title="Modifier ses coordonnées">
+    <VerticalStackLayout HorizontalOptions="Center" x:Name="form_editCoordinates">
+        <Grid RowSpacing="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label
+                Text="Nom de famille: "
+                Grid.Row="0"
+                Grid.Column="0"/>
+            <Entry
+                x:Name="entry_lastName"
+                Text="{Binding LastName}"
+                Grid.Row="0"
+                Grid.Column="1"
+                IsReadOnly="True"/>
+            <Label
+                Text="Prénom: "
+                Grid.Row="1"
+                Grid.Column="0"/>
+            <Entry
+                Text="{Binding FirstName}"
+                x:Name="entry_firstName"
+                Grid.Row="1"
+                Grid.Column="1"
+                IsReadOnly="True"/>
+            <Label
+                Text="Date de naissance: "
+                Grid.Row="2"
+                Grid.Column="0"/>
+            <DatePicker
+                Date="{Binding BirthDate}"
+                x:Name="entry_birthDate"
+                Grid.Row="2"
+                Grid.Column="1"
+                />
+            <Label 
+                Text="Modifier le mot de passe?"
+                Grid.Row="3"/>
+            <CheckBox
+                IsChecked="False"
+                x:Name="checkbox_changePassword"
+                CheckedChanged="ChangePasswordCheckbox_Clicked"/>
+            
+            <Label
+                x:Name="label_newPassword"
+                Text="Nouveau mot de passe: "
+                Grid.Row="4"
+                Grid.Column="0"
+                IsVisible="False"/>
+            <Entry
+                x:Name="entry_password"
+                IsPassword="True"
+                Grid.Row="4"
+                Grid.Column="1"
+                IsVisible="False"
+                />
+
+            <Button
+                Text="Valider"
+                Clicked="ValidateButton_Clicked"
+                Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

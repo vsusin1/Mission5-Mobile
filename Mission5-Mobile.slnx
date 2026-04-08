@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AppSicilyLines/AppSicilyLines.csproj" />
+  <Project Path="SicilyLinesAPI/SicilyLinesAPI.csproj" />
+</Solution>
