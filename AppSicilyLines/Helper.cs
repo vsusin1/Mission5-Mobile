@@ -11,18 +11,13 @@ namespace AppSicilyLines
 {
     internal class Helper
     {
-        static HttpClient client = null;
+        static HttpClient client = new HttpClient()
+        {
+            BaseAddress = new Uri("http://localhost:5288")
+        };
         public static async Task<T?> GetHttpResource<T>(string uri)
         {
             T? content = default;
-
-            if (client == null)
-            {
-
-                client = new HttpClient();
-                client.BaseAddress = new Uri("http://localhost:5288");
-               
-            }
 
             var response = await client.GetAsync(uri);
             response.EnsureSuccessStatusCode();

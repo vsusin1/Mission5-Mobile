@@ -2,13 +2,13 @@
 {
     public class Booking
     {
-        int id;
+        long id;
 
         Client client;
         FerryCrossing crossing;
         DateTime date;
 
-        public int Id
+        public long Id
         {
             get => id; set => id = value;
         }
@@ -21,8 +21,11 @@
         {
             get => crossing; set => crossing = value;
         }
-
-        public string Date
+        public DateTime Date
+        {
+            get => date; set => date = value;
+        }
+        public string FormattedDate
         {
             get
             {
@@ -32,16 +35,10 @@
 
         public Color BackgroundColor
         {
-            get
-            {
-                if (date < DateTime.Now)
-                    return Colors.LightGray;
-                else
-                    return Colors.LightGreen;
-            }
+            get => (date < DateTime.Now) ? Colors.LightGray : Colors.LightGreen;
         }
 
-        public Booking(int id, Client client, FerryCrossing crossing, DateTime date)
+        public Booking(long id, Client client, FerryCrossing crossing, DateTime date)
         {
             this.id = id;
             this.client = client;
